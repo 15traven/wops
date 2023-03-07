@@ -7,19 +7,19 @@ import { randomBytes, pbkdf2Sync } from 'crypto'
  * */
 
 /**
-  * @param {string} length
-  * @param {boolean} useSpecial
-  * @returns {string} password
+ * @param {string} length
+ * @param {boolean} useSpecial
+ * @returns {string} password
  * */
 export const generatePassword = (
-  length: number, 
+  length: number,
   useSpecial: boolean
 ): string => {
-  const leters = "abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  const numbers = "0123456789"
-  const special = "~`!@#$%^&*()_-+={[}]|\:;'<,>.?/"
+  const leters = 'abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  const numbers = '0123456789'
+  const special = "~`!@#$%^&*()_-+={[}]|:;'<,>.?/"
   let pswd = ''
-  
+
   if (useSpecial) {
     let charset = leters + numbers + special
     for (let i = 0; i < length; i++) {
@@ -42,11 +42,14 @@ export const generatePassword = (
  * @param {string} pswd
  * @return {HashAndSalt} object containing the hash and the salt used
  * */
-export const hashPassword = (pswd: string): {
-  hash: string; salt: string
+export const hashPassword = (
+  pswd: string
+): {
+  hash: string
+  salt: string
 } => {
-  const salt = randomBytes(16).toString("hex")
-  const hash = pbkdf2Sync(pswd, salt, 1000, 64, "sha512").toString("hex")
+  const salt = randomBytes(16).toString('hex')
+  const hash = pbkdf2Sync(pswd, salt, 1000, 64, 'sha512').toString('hex')
 
   return { hash, salt }
 }
@@ -60,17 +63,13 @@ export const hashPassword = (pswd: string): {
  * @returns {boolean} does hash(inpPswd + salt) === storedHash?
  * */
 export const validatePassword = (
-  inpPswd: string, 
-  salt: string, 
+  inpPswd: string,
+  salt: string,
   storedHash: string
-): boolean  => {
-  const inputHash = pbkdf2Sync(
-    inpPswd, 
-    salt, 
-    1000, 
-    64, 
-    "sha512"
-  ).toString("hex")
+): boolean => {
+  const inputHash = pbkdf2Sync(inpPswd, salt, 1000, 64, 'sha512').toString(
+    'hex'
+  )
 
   return storedHash === inputHash
 }
