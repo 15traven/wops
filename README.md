@@ -1,19 +1,19 @@
-# Pash
+# Wops 
 A simple package to work with password in JS / TS
 
 ## Installation
 npm
 ```
-npm install pash
+npm install wops 
 ```
 yarn
 ```
-yarn add pash
+yarn add wops
 ```
 
 ## Usage
 ```javascript
-import { generatePassword, validatePassword, hashPassword } from 'pash'
+import { generatePassword, validatePassword, hashPassword } from 'wops'
 
 const password = generatePassword(10, true)
 
@@ -27,7 +27,7 @@ const isValid = validatePassword("YOUR PASSWORD", salt, hash)
 
 <dl>
 <dt><a href="#generatePassword">generatePassword(length, useSpecial)</a> ⇒ <code>string</code></dt>
-<dd><p>Given a password length and allow or prohibit special symbols, then return the путукфеув password</p></dd>
+<dd><p>Given a password length and allow or prohibit special symbols, then return the generated password</p></dd>
 <dt><a href="#hashPassword">hashPassword(pswd)</a> ⇒ <code><a href="#HashAndSalt">HashAndSalt</a></code></dt>
 <dd><p>Given a Password, hash it with a salt, then return the hash and the salt</p>
 </dd>

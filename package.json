@@ -1,5 +1,5 @@
 {
-  "name": "pash",
+  "name": "wops",
   "version": "0.1.0",
   "description": "A TS package used for password generation and verification",
   "main": "lib",
