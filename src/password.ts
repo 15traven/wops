@@ -24,6 +24,7 @@ const generateCharset = (
 }
 
 /**
+ * Generates a password according to the specified parameters
  * @param {string} length
  * @param {boolean} useUpper
  * @param {boolean} useNumber
