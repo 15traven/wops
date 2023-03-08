@@ -1,6 +1,6 @@
 {
   "name": "wops",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A TS package used for password generation and verification",
   "main": "lib",
   "license": "MIT",
