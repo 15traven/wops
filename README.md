@@ -26,8 +26,9 @@ const isValid = validatePassword("YOUR PASSWORD", salt, hash)
 ## Functions
 
 <dl>
-<dt><a href="#generatePassword">generatePassword(length, useSpecial)</a> ⇒ <code>string</code></dt>
-<dd><p>Given a password length and allow or prohibit special symbols, then return the generated password</p></dd>
+<dt><a href="#generatePassword">generatePassword(length, useUpper, useNumber, useSpecial)</a> ⇒ <code>string</code></dt>
+<dd><p>Generates a password according to the specified parameters</p>
+</dd>
 <dt><a href="#hashPassword">hashPassword(pswd)</a> ⇒ <code><a href="#HashAndSalt">HashAndSalt</a></code></dt>
 <dd><p>Given a Password, hash it with a salt, then return the hash and the salt</p>
 </dd>
@@ -46,13 +47,17 @@ Does the given password match with the hash?</p>
 
 <a name="generatePassword"></a>
 
-## generatePassword(length, useSpecial) ⇒ <code>string</code>
+## generatePassword(length, useUpper, useNumber, useSpecial) ⇒ <code>string</code>
+Generates a password according to the specified parameters
+
 **Kind**: global function
 **Returns**: <code>string</code> - password
 
 | Param | Type |
 | --- | --- |
 | length | <code>string</code> |
+| useUpper | <code>boolean</code> |
+| useNumber | <code>boolean</code> |
 | useSpecial | <code>boolean</code> |
 
 <a name="hashPassword"></a>
