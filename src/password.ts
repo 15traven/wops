@@ -83,3 +83,44 @@ export const validatePassword = (
 
   return storedHash === inputHash
 }
+
+enum PasswordStrengthVariants {
+  VeryWeak = 'very weak',
+  Weak = 'weak',
+  Moderate = 'moderate',
+  Strong = 'strong',
+  VeryStrong = 'very strong'
+}
+
+/**
+ * The checkPasswordStrength function checks how strong the entered password is
+ * @param {string} pswd
+ * */
+export const checkPasswordStrength = (pswd: string):PasswordStrengthVariants => {
+  let score = 0
+
+  if (pswd.length >= 8) { score++ }
+
+  const hasLowercase = /[a-z]/.test(pswd)
+  if (hasLowercase) { score++ }
+
+  const hasUppercase = /[A-Z]/.test(pswd)
+  if (hasUppercase) { score++ }
+
+  const hasDigit = /\d/.test(pswd)
+  if (hasDigit) { score++ }
+
+  const hasSpecialChar = /[^a-zA-Z\d]/.test(pswd)
+  if (hasSpecialChar) { score++ }
+
+  let passwordStrength = ''
+  switch (score) {
+    case 0:
+    case 1: return PasswordStrengthVariants.VeryWeak
+    case 2: return PasswordStrengthVariants.Weak
+    case 3: return PasswordStrengthVariants.Moderate
+    case 4: return PasswordStrengthVariants.Strong
+    case 5: return PasswordStrengthVariants.VeryStrong
+    default: let passwordStrength = ''
+  }
+}
