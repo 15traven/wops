@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MykytaSikachyna/wops.git"
+    "url": "https://github.com/15ludyna/wops.git"
   },
   "scripts": {
     "test": "jest",
